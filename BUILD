@@ -59,6 +59,6 @@ platform(
     ],
 )
 
-dagger_android_rules()
+# dagger_android_rules()
 
 hilt_android_rules()

@@ -27,7 +27,6 @@ cc_library(
         "//visibility:public",
     ],
     deps = [
-        "//project_guideline/proto:guideline_log_cc_proto",
         "//project_guideline/util:image",
         "@com_google_absl//absl/synchronization",
     ],
@@ -52,12 +51,13 @@ cc_library(
     ],
     deps = [
         ":guideline_logger",
-        "//project_guideline/proto:guideline_log_cc_proto",
+        "@com_google_protobuf//:protobuf_javalite",
+        # "//project_guideline/proto:guideline_log_cc_proto",
         "//project_guideline/util:image",
         "//project_guideline/util:image_io",
-        "//third_party/protobuf",
-        "//third_party/protobuf:io",
-        "//third_party/protobuf:time_util",
+        # "//third_party/protobuf",
+        # "//third_party/protobuf:io",
+        # "//third_party/protobuf:time_util",
         "@com_google_absl//absl/log",
         "@com_google_absl//absl/log:check",
         "@com_google_absl//absl/status",
@@ -76,7 +76,6 @@ cc_library(
     ],
     deps = [
         ":guideline_logger",
-        "//project_guideline/proto:guideline_log_cc_proto",
         "@com_google_absl//absl/status",
     ],
 )

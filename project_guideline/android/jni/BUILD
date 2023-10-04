@@ -90,7 +90,6 @@ cc_library(
         "//project_guideline/environment:control_signal",
         "//project_guideline/logging:guideline_logger",
         "//project_guideline/logging:noop_guideline_logger",
-        "//project_guideline/proto:guideline_engine_config_cc_proto",
         "//project_guideline/util:status",
         "//project_guideline/visualization:camera_feed_renderer",
         "//project_guideline/visualization:environment_map_renderer",

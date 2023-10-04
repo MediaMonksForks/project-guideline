@@ -38,7 +38,6 @@ cc_library(
         "//project_guideline/environment:point_cloud",
         "//project_guideline/logging:guideline_logger",
         "//project_guideline/motion:motion_tracker",
-        "//project_guideline/proto:guideline_engine_config_cc_proto",
         "//project_guideline/util:status",
         "//project_guideline/vision:guideline_detector",
         "@com_google_absl//absl/functional:bind_front",
