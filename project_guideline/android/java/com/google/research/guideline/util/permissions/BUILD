@@ -26,7 +26,7 @@ android_library(
         "//visibility:public",
     ],
     deps = [
-        "//:dagger-android",
+        "//:hilt-android",
         "//third_party/hilt:scopes",
         "@maven//:androidx_activity_activity",
         "@maven//:androidx_appcompat_appcompat",

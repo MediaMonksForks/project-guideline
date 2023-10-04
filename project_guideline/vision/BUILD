@@ -25,7 +25,6 @@ cc_library(
     hdrs = ["guideline_detector.h"],
     deps = [
         ":keypoint_extraction",
-        "//project_guideline/proto:guideline_engine_config_cc_proto",
         "//project_guideline/util:embedded_file_toc",
         "//project_guideline/util:image",
         "//project_guideline/util:status",
@@ -58,12 +57,12 @@ cc_test(
     tags = ["not_run:arm"],
     deps = [
         ":guideline_detector",
-        "//project_guideline/proto:guideline_engine_config_cc_proto",
         "//project_guideline/testing:images",
         "//project_guideline/testing:predicates",
         "//project_guideline/testing:status_matchers",
         "//project_guideline/util:image",
         "//project_guideline/util:image_io",
+        "@com_google_protobuf//:duration_proto",
         "@com_google_absl//absl/functional:bind_front",
         "@com_google_absl//absl/synchronization",
         "@com_google_googletest//:gtest_main",
@@ -77,7 +76,6 @@ cc_library(
     hdrs = ["keypoint_extraction.h"],
     visibility = ["//visibility:public"],
     deps = [
-        "//project_guideline/proto:guideline_engine_config_cc_proto",
         "@com_google_absl//absl/status:statusor",
         "@eigen_archive//:eigen3",
         "@mediapipe//mediapipe/framework/port:opencv_core",

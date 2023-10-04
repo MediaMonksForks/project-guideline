@@ -109,49 +109,46 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 
 http_archive(
     name = "dagger",
-    patch_args = [
-        "-p1",
-    ],
-    patches = [
-        "@//third_party:dagger_patch.diff",
-    ],
-    sha256 = "8f55f8b081a72835fed96be66dbfccb95ee2ceff092872397e5e639cccec2114",
-    strip_prefix = "dagger-dagger-2.45",
-    urls = ["https://github.com/google/dagger/archive/dagger-2.45.zip"],
+    sha256 = "9e69ab2f9a47e0f74e71fe49098bea908c528aa02fa0c5995334447b310d0cdd",
+    strip_prefix = "dagger-dagger-2.28.1",
+    urls = ["https://github.com/google/dagger/archive/dagger-2.28.1.zip"],
 )
 
 load(
     "@dagger//:workspace_defs.bzl",
-    "DAGGER_ANDROID_ARTIFACTS",
-    "DAGGER_ANDROID_REPOSITORIES",
+    "HILT_ANDROID_ARTIFACTS",
+    "HILT_ANDROID_REPOSITORIES"
 )
 
 maven_install(
     artifacts = [
-        "androidx.core:core:1.6.0",
+        "androidx.core:core:1.0.0",
+        "androidx.appcompat:appcompat:1.0.0",
         "androidx.test:core:1.4.0",
-        "androidx.test.ext:junit:1.1.4",
+        "androidx.test.ext:junit:1.1.3",
         "androidx.test.espresso:espresso-core:3.5.0",
         "androidx.test.espresso:espresso-intents:3.5.0",
+        "androidx.annotation:annotation:1.0.0",
         "org.robolectric:robolectric:4.9.2",
         "org.robolectric:shadows-framework:4.9.2",
-        "com.google.ar:core:1.36.0",
+
+        "com.google.ar:core:1.30.0",
         "com.google.code.findbugs:jsr305:3.0.2",
         "com.google.guava:guava:31.1-android",
         "com.google.truth:truth:1.1.3",
         "javax.annotation:javax.annotation-api:1.3.2",
-        "androidx.annotation:annotation:1.5.0",
-        "com.google.dagger:hilt-android:2.46",
-        "com.google.dagger:hilt-android-testing:2.46",
-        "com.google.dagger:hilt-android-compiler:2.46",
-        "com.google.dagger:hilt-core:2.46",
-    ] + DAGGER_ANDROID_ARTIFACTS,
+
+        "com.google.dagger:hilt-android:2.35",
+        "com.google.dagger:hilt-android-testing:2.35",
+        "com.google.dagger:hilt-android-compiler:2.35",
+        "com.google.dagger:hilt-core:2.35",
+    ] + HILT_ANDROID_ARTIFACTS,
     fetch_sources = True,
     generate_compat_repositories = True,
     repositories = [
         "https://maven.google.com",
         "https://repo1.maven.org/maven2",
-    ] + DAGGER_ANDROID_REPOSITORIES,
+    ] + HILT_ANDROID_REPOSITORIES,
 )
 
 http_archive(
@@ -418,3 +415,6 @@ http_archive(
     strip_prefix = "swiftshader-9677c6d282788b0e2b7e2a02d539b5fa86279ee1",
     urls = ["https://github.com/google/swiftshader/archive/9677c6d282788b0e2b7e2a02d539b5fa86279ee1.tar.gz"],
 )
+
+android_sdk_repository(name = "androidsdk", api_level=31)
+android_ndk_repository(name = "androidndk", api_level=30)
